@@ -44,6 +44,15 @@ login to your image shell using root , without any password
 now you can set password using the following command
 #passwd
 
+# Testing the output
+from qemu terminal run 
+
+#cd usr/lib/qt/examples/gui/analogclock/
+#./analogclock -platform linuxfb
+
+it should display analog clock on qemu emulated display
+
+
 You can use ssh from host using the command 
 
 #ssh root@localhost -p10022
