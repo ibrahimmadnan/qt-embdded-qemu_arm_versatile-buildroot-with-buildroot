@@ -2,13 +2,15 @@
 configuration for buildroot to use qt creator on virtual qemu using qemu_arm_versatile 
 
 
-download buildroot
+*execute the following 
 
-#mkdir at91sam_buildroot
-
+#mkdir qemu_arm_versatile_qt
+#cd qemu_arm_versatile_qt
+#git clone https://github.com/ibrahimmadnan/qt-embdded-qemu_arm_versatile-buildroot-with-buildroot.git
+*download buildroot
 #git clone git://git.buildroot.net/buildroot
 
-#cd buidroot
+#cd buildroot
 
 check the latest stable release
 #git tag
@@ -16,20 +18,22 @@ check the latest stable release
 checkout the latest
 #git checkout 2018.05
 
-clean any old configuration
-#make defconfig
-#qemu_arm_versatile_defconfig
-#make clean
+*clean any old configuration
 
+#make defconfig
+#make clean
 #make qemu_arm_versatile_defconfig
 
 copy the provided .config file into the buildroot folder
+#cp ../qt-embdded-qemu_arm_versatile-buildroot-with-buildroot/.config .
+
+
 
 if you need to edit you can use 
 
 #make menuconfig 
 
-now run from buildroot folder
+to build now run 
 
 #make 
 
