@@ -5,8 +5,11 @@ configuration for buildroot to use qt creator on virtual qemu using qemu_arm_ver
 *execute the following 
 
 #mkdir qemu_arm_versatile_qt
+
 #cd qemu_arm_versatile_qt
+
 #git clone https://github.com/ibrahimmadnan/qt-embdded-qemu_arm_versatile-buildroot-with-buildroot.git
+
 *download buildroot
 #git clone git://git.buildroot.net/buildroot
 
@@ -61,3 +64,4 @@ You can use ssh from host using the command
 
 #ssh root@localhost -p10022
 
+you can now send command using ssh
