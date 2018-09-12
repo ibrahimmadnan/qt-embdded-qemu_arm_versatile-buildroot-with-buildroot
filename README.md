@@ -65,3 +65,7 @@ You can use ssh from host using the command
 #ssh root@localhost -p10022
 
 you can now send command using ssh
+
+update framebuffer resolution
+
+fbset -fb /dev/fb0 -g 800 600 800 600 16
