@@ -1,0 +1,21 @@
+#bin/bash 
+echo "start configuring host pc network interface ..."
+echo "create bridge on host system"
+sudo ip link add br0 type bridge
+echo "clear the ip address of the host system .."
+sudo ip addr flush dev eno1
+echo "connect the host ethernet connection to the new bridge.."
+sudo ip link set eno1 master br0 
+echo "create new tap interface on the current user called tap0"
+sudo ip tuntap add dev tap0 mode tap user $(whoami)
+echo "add that new tap to be connected to the bridge"
+sudo ip link set tap0 master br0
+echo "make sure everything is up :"
+sudo ip link set dev br0 up
+sudo ip link set dev tap0 up
+echo "restarting the network service "
+sudo /etc/init.d/networking restart
+echo "update dhcp using"
+sudo dhclient
+"start qemu device"
+qemu-system-arm -M versatilepb -kernel output/images/zImage -dtb output/images/versatile-pb.dtb -drive file=output/images/rootfs.ext2,if=scsi,format=raw -append "root=/dev/sda console=ttyAMA0,115200,ip=dhcp" -serial mon:stdio -device e1000,netdev=network0,mac=52:22:00:d1:55:01 -netdev tap,id=network0,ifname=tap0,script=no,downscript=no
