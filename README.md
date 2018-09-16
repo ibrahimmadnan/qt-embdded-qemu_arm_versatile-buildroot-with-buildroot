@@ -64,11 +64,16 @@ You can use ssh from host using the command
 
 #ssh root@localhost -p10022
 
+<<<<<<< HEAD
 
 
 you can now send command using ssh
 
+you can now send command using ssh
 
+update framebuffer resolution
+
+fbset -fb /dev/fb0 -g 800 600 800 600 16
 ------------------------------------------------------------------------------
 
 If you need to create bridge network to provide separate ip for the qemu guest you have to do :
@@ -136,4 +141,7 @@ before doing that you will have to create bridge and tap interfaces on your host
 
 TODO : -upload automatic script to configure the network on host
        - create patch file to configure buildroot .config and make new defconfig
+
+=======
+
 
